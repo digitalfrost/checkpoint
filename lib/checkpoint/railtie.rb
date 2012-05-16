@@ -43,7 +43,6 @@ class Checkpoint::Railtie < ::Rails::Railtie
       end
       
       #for our american friends
-      asda
       def self.authorize(arg1, &block)
         authorise(arg1, &block)
       end
