@@ -77,6 +77,14 @@ authorise ["PostsController::create", "PostsController::update"] do
 end
 ```
 
+## FAQ
+
+### How do I enable devise?
+
+```ruby
+authorise "Devise::*"
+```
+
 ## License
 
 Checkpoint is released under the MIT license:
