@@ -18,7 +18,7 @@ To enable a user to access/use a resource you must specify an authorisation rule
 So if for instance you wanted to grant access (to all users) to your posts index action you could do the following:
 
 ```ruby
-#grant access your posts controller 'index' action to all users
+#grant access to your posts controller 'index' action to all users
 authorise "PostsController::index"
 
 #or  authorize "PostsController::index"
@@ -51,7 +51,7 @@ authorise /\APostsController::.*\Z/
 If you want to be able to grant access to your view action to only users who have signed in, you can do this by passing a block that returns true if the user is logged in.
 
 ```ruby
-#grant access your posts controller 'view' action to all users who have signed in
+#grant access to your posts controller 'view' action to all users who have signed in
 authorise "PostsController::view" do
   !current_user.nil?
 end
