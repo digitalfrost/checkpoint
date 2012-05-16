@@ -30,21 +30,21 @@ Noticed how the pattern above is in the format of "ControllerName::action"
 So if you wanted to grant action to your posts view action you could do the following:
 
 ```ruby
-#grant access your posts controller 'view' action to all users
+#grant access to your posts controller 'view' action to all users
 authorise "PostsController::view"
 ```
 
 If you want to grant access to all actions in your post controller you can use a wildcard ('*') char and do the following
 
 ```ruby
-#grant access your posts controller actions to all users
+#grant access to your posts controller actions to all users
 authorise "PostsController::*"
 ```
 
 You can also do the same above by using a regular expression:
 
 ```ruby
-#grant access your posts controller actions to all users
+#grant access to your posts controller actions to all users
 authorise /\APostsController::.*\Z/
 ```
 
