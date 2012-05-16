@@ -13,13 +13,16 @@ and then run bundle install from your shell.
 
 By default all users get denied access to everything.
 
-To enable a user to access/use a resource you must specify an authoerisation rule to grant access. This is done using the "authorise" method in the application controller.
+To enable a user to access/use a resource you must specify an authorisation rule to grant access. This is done using the "authorise" (or "authorize" for americans) method in the application controller.
 
 So if for instance you wanted to grant access (to all users) to your posts index action you could do the following:
 
 ```ruby
 #grant access your posts controller 'index' action to all users
 authorise "PostsController::index"
+
+#or  authorize "PostsController::index"
+
 ```
 
 Noticed how the pattern above is in the format of "ControllerName::action"

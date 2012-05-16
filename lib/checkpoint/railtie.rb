@@ -42,6 +42,11 @@ class Checkpoint::Railtie < ::Rails::Railtie
         end
       end
       
+      #for our american friends
+      def self.authorize(arg1, &block)
+        authorise(arg1, &block)
+      end
+      
       def authorised?
         action = "#{self.class.to_s}::#{params[:action]}"
         ::ApplicationController.authorise_controllers_blocks.each do |pattern, blocks|
