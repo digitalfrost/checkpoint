@@ -3,9 +3,19 @@ require 'rails'
 class Checkpoint::Railtie < ::Rails::Railtie
   config.before_initialize do
     class ::ActionController::Base
+      
+      def self.authorise_controllers_blocks
+        if @authorise_controllers_blocks.nil?
+            @authorise_controllers_blocks = {}
+        end
+        @authorise_controllers_blocks
+      end
   
-      @@authorise_controllers_blocks = {}
       def self.authorise(arg1, &block)
+        
+        if block.nil?
+          block = lambda {|c| true}
+        end
       
         to_regexp = lambda do |pattern|
           if arg1.class.to_s == 'Regexp'
@@ -22,20 +32,22 @@ class Checkpoint::Railtie < ::Rails::Railtie
           patterns.push to_regexp.call(arg1)
         end
         
+        authorise_controllers_blocks = ::ApplicationController.authorise_controllers_blocks
+        
         patterns.each do |pattern|
-          if @@authorise_controllers_blocks [pattern].nil?
-            @@authorise_controllers_blocks [pattern] = []
+          if authorise_controllers_blocks [pattern].nil?
+            authorise_controllers_blocks[pattern] = []
           end
-          @@authorise_controllers_blocks[pattern].push(block)
+          authorise_controllers_blocks[pattern].push(block)
         end
       end
       
       def authorised?
-        action = "#{self.class.to_s}::#{self.params[:action]}"
-        @@authorise_controllers_blocks.each do |pattern, blocks|
+        action = "#{self.class.to_s}::#{params[:action]}"
+        ::ApplicationController.authorise_controllers_blocks.each do |pattern, blocks|
           if action.match pattern
             blocks.each do |block|
-              if block.call(self)
+              if instance_eval(&block)
                 return true
               end
             end
