@@ -83,6 +83,7 @@ end
 
 ```ruby
 authorise "Devise::*"
+
 ```
 
 ## License

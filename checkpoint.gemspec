@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.version     = Checkpoint::VERSION
   s.authors     = ["Jody Salt"]
   s.email       = ["jody@leanbid.com"]
-  #s.homepage    = ""
-  s.summary     = "Simple rails authentication"
+  s.homepage    = "https://github.com/leanbid/checkpoint"
+  s.summary     = "Simple rails authorisation"
   #s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "checkpoint"
