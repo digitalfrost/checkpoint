@@ -59,7 +59,7 @@ end
 
 In the example above the block uses the bindings of the controller that is being called, so therefore it can access anything that that particular controller access e.g. your current params hash etc...
 
-Similarly you could grat access to everything to all admin users by doing the following:
+Similarly you could grant access to everything to all admin users by doing the following:
 
 ```ruby
 #grant access to everything to all admin users
