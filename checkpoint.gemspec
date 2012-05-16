@@ -5,11 +5,12 @@ require "checkpoint/version"
 Gem::Specification.new do |s|
   s.name        = "checkpoint"
   s.version     = Checkpoint::VERSION
-  s.authors     = ["Jody Salt"]
-  s.email       = ["jody@jodysalt.com"]
+  s.authors     = ["Leanbid LTD"]
+  s.email       = ["it@leanbid.com"]
   s.homepage    = "https://github.com/leanbid/checkpoint"
   s.summary     = "Simple rails authorisation"
   #s.description = %q{TODO: Write a gem description}
+  s.license = "MIT"
 
   s.rubyforge_project = "checkpoint"
 
