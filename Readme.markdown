@@ -85,6 +85,16 @@ end
 authorise "Devise::*"
 
 ```
+### How do I enable an API Key?
+
+```ruby
+#grant access to all controllers in the Api namespace for requests which have the API key as a param
+authorize "Api::*" do
+  params[:api_key] == API_KEY
+end
+
+```
+
 
 ## License
 
