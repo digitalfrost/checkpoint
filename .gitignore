@@ -6,3 +6,5 @@ pkg/*
 *.swo
 *.swn
 *.~
+*swp
+*~

@@ -60,14 +60,18 @@ class Checkpoint::Railtie < ::Rails::Railtie
         end
         false
       end
+
+      def access_denied
+        logger.info "\n\n-----------------------------------------------"
+        logger.info " (401) Access Denied!"
+        logger.info " * see the above request for more info"
+        logger.info "-----------------------------------------------\n\n"
+        render :text => "Access Denied", :status => 401
+      end
       
       before_filter do |controller|
         if !authorised?
-          logger.info "\n\n-----------------------------------------------"
-          logger.info " (401) Access Denied!"
-          logger.info " * see the above request for more info"
-          logger.info "-----------------------------------------------\n\n"
-          render :text => "Access Denied", :status => 401
+          access_denied
         end
       end
       
