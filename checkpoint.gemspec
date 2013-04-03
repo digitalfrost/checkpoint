@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Checkpoint::VERSION
   s.authors     = ["Leanbid LTD"]
   s.email       = ["it@leanbid.com"]
-  s.homepage    = "https://github.com/leanbid/checkpoint"
+  s.homepage    = "https://github.com/digitalfrost/checkpoint"
   s.summary     = "Simple rails authorisation"
   #s.description = %q{TODO: Write a gem description}
   s.license = "MIT"
